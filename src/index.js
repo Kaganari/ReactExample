@@ -4,42 +4,55 @@ import {
   BrowserRouter,
   Route
 } from 'react-router-dom';
+import InputForm from './components/InputForm/InputForm';
+import RadioButton from './components/radioButton/RadioButton';
+import Button from './components/button/Button';
 
 import './index.scss';
 
 
-class NameForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
-}
-
 ReactDOM.render(
-  <NameForm />,
-  document.getElementById('root')
+    <div>
+    <header className="form__header">
+        <h2 className="form__heading">Давайте начнем! </h2>
+    </header>
+    <InputForm
+        label = 'Имя'
+        type = 'text'
+        name = 'firstName'
+        placeholder = 'Your first name'
+    />
+    <InputForm
+        label = 'Фамилия'
+        type = 'text'
+        name = 'secondName'
+        placeholder = 'Your second name'
+    />
+    <div className="sex-choice">
+    <label className='input-form__label'>Ваш пол</label>
+    <RadioButton
+        label = 'Женский'
+        name = 'sex'
+        value = 'female'
+    />
+    <RadioButton
+        label = 'Мужской'
+        name = 'sex'
+        value = 'male'
+    />
+    </div>
+    <InputForm
+        label = 'Введите электронный адрес'
+        type = 'text'
+        name = 'email'
+        placeholder = 'email@gmail.com'
+    />
+    <InputForm
+        label = 'Придумайте пароль'
+        type = 'password'
+        name = 'password'
+        placeholder = ''
+    />
+    <Button classes = 'button' type = 'submit' value = 'Зарегистрироваться' />
+    </div>, document.getElementById('form')
 );

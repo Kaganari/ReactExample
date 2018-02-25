@@ -30,6 +30,12 @@
     "start": "webpack-dev-server --hot --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js"
   },
+
+  "babel": {
+    "presets": [
+      "react"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kaganari/ReactExample.git"

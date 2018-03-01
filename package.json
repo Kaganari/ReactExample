@@ -30,7 +30,6 @@
     "start": "webpack-dev-server --hot --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js"
   },
-
   "babel": {
     "presets": [
       "react"

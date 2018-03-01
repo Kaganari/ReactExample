@@ -6,18 +6,21 @@ import './style.scss';
 export default class CheckBox extends React.Component {
     
     render() {
-        const {label, name} = this.props;
+        const {label, name, value, onChange} = this.props;
 
         return (
-            <label className = 'check-box__label'>{label}
-                <input className = 'check-box__input' type = 'checkbox' name = {name}/>
+            <label className = 'checkbox__label'>
+                <input className = 'checkbox__box' type = 'checkbox' name = {name} value = {value} onChange = {onChange}/>
+                {label}
             </label>
         );
     }
 }
 
 
-InputForm.propTypes = {
-    label: PropTypes.string,
-    name: PropTypes.string
+CheckBox.propTypes = {
+    value: PropTypes.string,
+    label: PropTypes.element,
+    name: PropTypes.string,
+    onChange: PropTypes.func
 };
